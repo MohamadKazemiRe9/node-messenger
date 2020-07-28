@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-9">
+                <form action="" class="mt-4" class="form">
+                    <h5>messanger box</h5>
+                    <div id="massages"></div>
+                    <input type="text" class="form-control" id="inputMessage" autocomplete="off">
+                    <button class="btn btn-primary mt-3 w-100" id="btnSendMessage">Send</button>
+                    <button class="btn btn-warning w-100 mt-2" id="share_location">Share Location</button>
+                </form>
+            </div>
+            <div class="col-lg-2 col-md-3 col-3 side_list" id="users_template"></div>
+    </div>
+
+    <script id="massgae_template" class="d-none" type="text/html">
+        <div class="massage_container">
+            <div class="message_box">
+                <div class="message_title"><span class="message_user_name">{{username}}   </span>{{message}}</div>
+                <div class="message_date">{{createdAt}}</div>
+            </div>
+        </div>
+    </script>
+    <script id="location_massgae_template" class="d-none" type="text/html">
+        <div>
+            <div class="message_title"><span class="message_user_name">{{username}}   </span>
+                <a href="{{url}}">Location</a>
+            </div>
+            <div class="message_date">{{createdAt}}</div>
+        </div>
+    </script>
+
+    <script id="side_bar_list_users" type="text/html">
+        <h4 class="side_bar_list_users_header">{{room}}</h4>
+        <h5 class="side_bar_list_users_sub_header">Users : </h5>
+        <ul class="side_bar_list_users_list_container">
+            {{#userList}}
+            <li>{{username}}</li>
+            {{/userList}}
+        </ul>
+    </script>
+    
+    <script src="./js/qs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+</html>
