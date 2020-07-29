@@ -16,7 +16,18 @@ body{
 .message_user_name{
     font-weight: bolder;
 }
-.message_box{
+.massage_container{
+    display: block;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+.massage_container_self{
+    display: block;
+    width: 100%;
+}
+.message_box , .message_box_self{
     margin-bottom: 8px;
     border: 2px solid #10ac84;
     display: inline-block;
@@ -26,8 +37,10 @@ body{
     overflow-x: hidden;
     max-width: 90%;
 }
-.massage_container{
-    display: block;
+.message_box{
+    background-color: #cbf7ec;
+    /* margin-left: 30%; */
+    /* transform: translateX(50%); */
 }
 .message_date{
     font-size: 10px;

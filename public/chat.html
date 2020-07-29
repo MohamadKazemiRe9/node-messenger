@@ -22,13 +22,24 @@
     </div>
 
     <script id="massgae_template" class="d-none" type="text/html">
-        <div class="massage_container">
+        <div class="massage_container d-flex justify-content-end">
             <div class="message_box">
-                <div class="message_title"><span class="message_user_name">{{username}}   </span>{{message}}</div>
+                <div class="message_title">{{message}}<span class="message_user_name">{{username}}</span></div>
                 <div class="message_date">{{createdAt}}</div>
             </div>
         </div>
     </script>
+
+    <script id="massgae_template_self" class="d-none" type="text/html">
+        <div class="massage_container_self">
+            <div class="message_box_self">
+                <div class="message_title"><span class="message_user_name">{{username}} : </span>{{message}}</div>
+                <div class="message_date">{{createdAt}}</div>
+            </div>
+        </div>
+    </script>
+
+
     <script id="location_massgae_template" class="d-none" type="text/html">
         <div>
             <div class="message_title"><span class="message_user_name">{{username}}   </span>

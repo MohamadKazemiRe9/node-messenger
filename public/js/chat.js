@@ -7,6 +7,7 @@ const $buttonForm = $form.querySelector("button");
 const $messages = document.querySelector("#massages");
 
 const messageTemplate = document.querySelector("#massgae_template").innerHTML;
+const messageTemplateSelf = document.querySelector("#massgae_template_self").innerHTML;
 const locationMessageTemplate = document.querySelector("#location_massgae_template").innerHTML;
 const side_bar_list_users = document.querySelector("#side_bar_list_users").innerHTML;
 
@@ -34,18 +35,18 @@ const {username , room} = Qs.parse(location.search,{ ignoreQueryPrefix:true })
 socket.on('getMessage',(message)=>{
     // console.log(socket.id)
     if(message.id===socket.id){
-        let username = "you : "
+        let username = " : you"
         const html = Mustache.render(messageTemplate,{
             message:message.text,createdAt:moment(message.createdAt).format("HH:mm A"),
             username
         });
         $messages.insertAdjacentHTML('beforeend',html);
     }else{
-        let username = "system message : "
+        let username = "system message "
         if(message.username){
             username = message.username
         }
-        const html = Mustache.render(messageTemplate,{
+        const html = Mustache.render(messageTemplateSelf,{
             message:message.text,createdAt:moment(message.createdAt).format("HH:mm A"),
             username
         });
